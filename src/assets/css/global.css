@@ -1,0 +1,21 @@
+:root {
+  --dark-color: #0D0D0D;
+  --blue-color: #2F5E8D;
+  --red-color: #ce2127;
+}
+
+@font-face {
+  font-family: OdisseyFont;
+  src: url('./fonts/HomepageBaukasten-Bold.ttf');
+}
+
+html, body {
+  background-color: var(--dark-color);
+  letter-spacing: 4px;
+  color: var(--blue-color);
+  font-family: OdisseyFont, sans-serif;
+  align-self: center;
+  height: 100%;
+  margin : 0
+
+}
