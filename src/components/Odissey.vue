@@ -40,7 +40,7 @@ onMounted(() => {
 }
 
 .My_Title {
-    font-size: 18px;
+    font-size: 42px;
     width: 50%;
     text-align: center;
 
