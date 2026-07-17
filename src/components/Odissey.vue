@@ -1,25 +1,23 @@
 <script setup>
 
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
-const start = ref('Alice')
+const start = ref('')
 
-let BirthdayDate = new Date("Jul 18, 2027 15:36:00").getTime();
+onMounted(() => {
+    const BirthdayDate = new Date("Jul 18, 2027").getTime()
 
-let x = setInterval(function(){
-    let NowDate = new Date().getTime();
+    setInterval(function () {
+        const NowDate = new Date().getTime()
+        const gap = BirthdayDate - NowDate
 
-    let gap = BirthdayDate - NowDate;
+        const days = Math.floor(gap / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((gap % (1000 * 60)) / 1000)
 
-    var days = Math.floor(gap / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((gap % (1000 * 60)) / 1000);
-
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-
+        start.value = `${days} : ${hours} : ${minutes} : ${seconds}`
+    }, 1000)
 })
 </script>
 
@@ -27,7 +25,6 @@ let x = setInterval(function(){
 
     <div class ="Section_Title">
         <h1 class="My_Title">{{ start }}</h1>
-        <h1 id="demo"></h1>
     </div>
 
 </template>
